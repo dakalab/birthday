@@ -1,0 +1,38 @@
+{
+    "name": "dakalab/birthday",
+    "description": "Validate birthday, parse the age and constellation of valid birthday.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hyper Jiang",
+            "email": "hyper@dakalab.com",
+            "homepage": "http://dakalab.com"
+        }
+    ],
+    "require": {
+        "php": ">=7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7",
+        "friendsofphp/php-cs-fixer": "^2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dakalab\\Birthday\\": "src/Birthday/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dakalab\\Birthday\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@phpunit",
+            "@phpcs"
+        ],
+        "phpunit": "phpunit --color=always --verbose",
+        "phpcs": "php-cs-fixer fix -v --diff --dry-run"
+    }
+}
