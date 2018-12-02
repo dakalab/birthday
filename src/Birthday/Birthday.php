@@ -120,6 +120,7 @@ class Birthday
         if ($currentMonth < $month || ($currentMonth == $month && $currentDay < $day)) {
             $age--;
         }
+
         return $age;
     }
 
@@ -174,6 +175,7 @@ class Birthday
             $lang = 'en';
         }
         $json = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . $lang . '.json');
+
         return json_decode($json, true);
     }
 
@@ -187,6 +189,7 @@ class Birthday
     protected function translate($constellation, $lang = 'en'): string
     {
         $arr = $this->loadTranslation($lang);
+
         return isset($arr[$constellation]) ? $arr[$constellation] : '';
     }
 }

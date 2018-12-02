@@ -15,9 +15,9 @@ class BirthdayTest extends TestCase
     /**
      * @dataProvider birthdayProvider
      */
-    public function testBirthday($birthday, $lang, $age, $constellation): void
+    public function testBirthday($date, $lang, $age, $constellation): void
     {
-        $birthday = new Birthday($birthday, $lang);
+        $birthday = new Birthday($date, $lang);
         $this->assertEquals($age, $birthday->getAge());
         $this->assertEquals($constellation, $birthday->getConstellation());
     }
