@@ -16,7 +16,7 @@ composer require dakalab/birthday
 ## Usage
 
 ```
-$birthday = new Birthday('1988-01-01', 'cn');
+$birthday = new Birthday('1988-01-01', 'zh');
 $age = $birthday->getAge();
 $constellation = $birthday->getConstellation();
 ```

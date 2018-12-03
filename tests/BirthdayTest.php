@@ -26,7 +26,7 @@ class BirthdayTest extends TestCase
     {
         return [
             [date('Y') . '-01-01', 'en', 0, 'Capricorn'],
-            [date('Y') . '-10-01', 'cn', 0, '天秤座'],
+            [date('Y') . '-10-01', 'zh', 0, '天秤座'],
             [date('Y') . '-3-01', 'xx', 0, 'Pisces'],
         ];
     }
