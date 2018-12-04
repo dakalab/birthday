@@ -101,4 +101,28 @@ class BirthdayTest extends TestCase
             [date('Y') - 300 . '-01-01', null, \OutOfRangeException::class],
         ];
     }
+
+    /**
+     * @dataProvider formatProvider
+     */
+    public function testFormat($date, $format, $expected): void
+    {
+        $birthday = new Birthday($date);
+        $this->assertEquals($expected, $birthday->format($format));
+    }
+
+    public function formatProvider(): array
+    {
+        return [
+            [date('Y') . '-1-1', null, date('Y') . '-01-01'],
+            [date('Y') . '-1-1', 'M jS, Y', 'Jan 1st, ' . date('Y')],
+            [date('Y') . '1201', 'd/m/Y', '01/12/' . date('Y')],
+        ];
+    }
+
+    public function testToString(): void
+    {
+        $birthday = new Birthday('20180131');
+        $this->assertEquals('2018-01-31', (string) $birthday);
+    }
 }

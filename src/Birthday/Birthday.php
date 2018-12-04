@@ -40,6 +40,7 @@ class Birthday
     protected function parse(): void
     {
         list('year' => $year, 'month' => $month, 'day' => $day) = self::validate($this->birthday);
+        $this->birthday = sprintf('%d-%02d-%02d', $year, $month, $day); // normalize the date
         $this->age = self::calculateAge($year, $month, $day);
         $this->constellation = self::parseConstellation($month, $day);
     }
@@ -73,6 +74,21 @@ class Birthday
     public function setLang($lang): void
     {
         $this->lang = $lang;
+    }
+
+    /**
+     * Return the birthday in given format
+     *
+     * @param  string   $format
+     * @return string
+     */
+    public function format($format = null): string
+    {
+        if (empty($format)) {
+            return $this->birthday;
+        }
+
+        return date($format, strtotime($this->birthday));
     }
 
     /**
@@ -191,5 +207,16 @@ class Birthday
         $arr = $this->loadTranslation($lang);
 
         return isset($arr[$constellation]) ? $arr[$constellation] : '';
+    }
+
+    /**
+     * Magic method to return the normalized birthday string
+     * http://php.net/manual/en/language.oop5.magic.php#object.tostring
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->birthday;
     }
 }

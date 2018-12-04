@@ -16,7 +16,11 @@ composer require dakalab/birthday
 ## Usage
 
 ```
-$birthday = new Birthday('1988-01-01', 'zh');
+use Dakalab\Birthday\Birthday;
+
+$birthday = new Birthday('2018-12-01', 'zh');
 $age = $birthday->getAge();
 $constellation = $birthday->getConstellation();
+$formatedDate = $birthday->format('d/m/Y'); // 01/12/2018
+$normalizedDate = (string) $birthday; // 2018-12-01
 ```
