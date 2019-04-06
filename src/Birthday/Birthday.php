@@ -136,6 +136,9 @@ class Birthday
         if ($currentMonth < $month || ($currentMonth == $month && $currentDay < $day)) {
             $age--;
         }
+        if ($age < 0) {
+            $age = 0;
+        }
 
         return $age;
     }
