@@ -6,7 +6,9 @@ class Birthday
 {
     const MAX_AGE = 200; // max age, seems nobody will live so long
 
-    const SUPPORTED_LANGS = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pt', 'ru', 'th', 'zh', 'zh-TW'];
+    const SUPPORTED_LANGS = [
+        'de', 'el', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'la', 'nl', 'pt', 'ru', 'th', 'vi', 'zh-TW', 'zh',
+    ];
 
     protected $birthday;
 
